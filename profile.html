@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+        }
+
+        main {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        section {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #3498db;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .test-results {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>User Profile</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Predict My Career</h2>
+            <p>Click the button below to predict your career based on your test results.</p>
+            <button onclick="predictCareer()">Predict My Career</button>
+        </section>
+
+        <section class="test-results">
+            <h2>Test Results</h2>
+
+            <div>
+                <h3>Aptitude Test</h3>
+                <p>Score: 8/10</p>
+                <!-- Add more details if needed -->
+            </div>
+
+            <div>
+                <h3>Interest Test</h3>
+                <p>Selected Areas: Science, Technology</p>
+                <!-- Add more details if needed -->
+            </div>
+
+            <div>
+                <h3>Background Test</h3>
+                <p>Mathematics Grade: A</p>
+                <p>Science Grade: B</p>
+                <!-- Add more details if needed -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function predictCareer() {
+            // Add logic to predict career based on test results
+            alert('Career prediction will be displayed here.');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+        }
+
+        main {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        section {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .subject-details {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Background Test</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Select Number of Subjects</h2>
+            <label for="subject_count">Number of Subjects:</label>
+            <input type="number" id="subject_count" name="subject_count" min="1" required>
+            <button onclick="createSubjectDetailsForm()">Create Subject Details Form</button>
+        </section>
+
+        <section id="subjectDetailsSection" style="display: none;">
+            <h2>Subject Details</h2>
+            <div id="subjectDetailsContainer" class="subject-details">
+                <!-- Subject details form will be dynamically added here -->
+            </div>
+            <button type="submit" onclick="submitSubjectDetails()">Submit Subject Details</button>
+        </section>
+    </main>
+
+    <script>
+        function createSubjectDetailsForm() {
+            const subjectCount = document.getElementById('subject_count').value;
+            const subjectDetailsContainer = document.getElementById('subjectDetailsContainer');
+            subjectDetailsContainer.innerHTML = '';
+
+            for (let i = 1; i <= subjectCount; i++) {
+                const subjectDiv = document.createElement('div');
+                subjectDiv.innerHTML = `
+                    <label for="subject${i}_name">Subject ${i} Name:</label>
+                    <input type="text" id="subject${i}_name" name="subject${i}_name" required>
+
+                    <label for="subject${i}_grade">Subject ${i} Grade:</label>
+                    <input type="text" id="subject${i}_grade" name="subject${i}_grade" required>
+                `;
+                subjectDetailsContainer.appendChild(subjectDiv);
+            }
+
+            document.getElementById('subjectDetailsSection').style.display = 'block';
+        }
+
+        function submitSubjectDetails() {
+            // Add logic to handle the submitted subject details
+            alert('Subject details submitted!');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #chat-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #chat-messages {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            height: 300px;
+            overflow-y: scroll;
+        }
+
+        #user-input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            box-sizing: border-box;
+        }
+
+        #send-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="chat-container">
+        <div id="chat-messages"></div>
+        <input type="text" id="user-input" placeholder="Type your message...">
+        <button id="send-btn" onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var userInput = document.getElementById("user-input").value;
+            var chatMessages = document.getElementById("chat-messages");
+
+            // Display user's message
+            chatMessages.innerHTML += '<p class="user-message">You: ' + userInput + '</p>';
+
+            // Handle the user's message (this is where you'd connect to a backend or perform logic)
+            var response = handleUserMessage(userInput);
+
+            // Display mentor's response after a short delay to simulate processing
+            setTimeout(function() {
+                chatMessages.innerHTML += '<p class="mentor-message">Mentor: ' + response + '</p>';
+
+                // Scroll to the bottom of the chat container
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                // Clear the input field
+                document.getElementById("user-input").value = '';
+            }, 500);
+        }
+
+        function handleUserMessage(message) {
+            // This is where you'd send the user's message to the backend for processing
+            // In a real application, you'd interact with a server or database to get a mentor's response.
+            // For simplicity, let's simulate a mentor's response here.
+            return "Hello! I'm your mentor. How can I help you today?";
+        }
+    </script>
+
+</body>
+</html>
